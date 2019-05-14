@@ -1,0 +1,37 @@
+<div class="modal-dialog text-center">
+  <div class="col-sm-10 form-section">
+    <div class="modal-content">
+      <div class="col-12 logo">
+        <img src="./assets/images/microchip.svg">
+        <span>Login Panel</span>
+      </div>
+      <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)" class="col-12" novalidate>
+        <div class="form-group">
+          <input type="email" name="email" email #email="ngModel" ngModel class="form-control" placeholder="Enter Email"
+                 autocomplete="username" required>
+          <div *ngIf="signInForm.submitted && email.errors" class="invalid-form">
+            <span *ngIf="email['errors']?.required">This field is required.</span>
+            <span *ngIf="email['errors']?.email">Invalid email address.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="password" name="password" #password="ngModel" ngModel class="form-control"
+                 placeholder="Enter Password" autocomplete="current-password" required>
+          <div *ngIf="signInForm.submitted && password.errors" class="invalid-form">
+            <span *ngIf="password['errors']?.required">This field is required.</span>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-info mt-3 mb-2" [disabled]="signingIn">
+          <fa-icon *ngIf="signingIn" icon="sync-alt" [spin]="true" size="sm"></fa-icon>
+          <ng-container *ngIf="!signingIn">
+            <fa-icon icon="sign-in-alt" class="mr-1"></fa-icon>
+            <span>Log In</span>
+          </ng-container>
+        </button>
+      </form>
+      <!-- Error message -->
+      <div id="snackbar" role="alert"></div>
+    </div>
+  </div>
+</div>
+<span class="footer">Smart Haus | Home Automation System</span>
