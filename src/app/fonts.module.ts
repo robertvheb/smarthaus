@@ -15,7 +15,9 @@ import {
   faSignOutAlt,
   faSignInAlt,
   faEnvelope,
-  faSun
+  faSun,
+  faCloud,
+  faFlask
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -32,7 +34,9 @@ library.add(
   faSignOutAlt,
   faSignInAlt,
   faEnvelope,
-  faSun
+  faSun,
+  faCloud,
+  faFlask
 );
 
 @NgModule({

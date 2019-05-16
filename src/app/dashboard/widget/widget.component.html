@@ -1,25 +1,5 @@
 <div class="row no-gutters">
-  <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
-    <div class="card text-white bg-dark mb-3">
-      <span class="badge badge-success" data-toggle="tooltip" data-placement="top"
-            title="Device is connected">
-          <fa-icon icon="signal" size="m"></fa-icon>
-      </span>
-      <h5 class="card-header">
-        <fa-icon icon="lightbulb" size="m" class="mr-1"></fa-icon>
-        Bedroom LEDs
-      </h5>
-      <div class="card-body">
-        <p class="card-text">Relay switch on pin D5</p>
-        <button class='btn btn-primary btn-sm btn-success mr-2' type="button" (click)="offRelay()">
-          ON
-        </button>
-        <button class='btn btn-primary btn-sm btn-danger mr-2' type="button" (click)="onRelay()">
-          OFF
-        </button>
-      </div>
-    </div>
-  </div>
+  
   <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
     <div class="card text-white bg-dark mb-3">
       <div *ngIf="!isLoading || isSyncing">
@@ -54,6 +34,11 @@
       </div>
     </div>
   </div>
+ 
+</div>
+
+
+<div class="row no-gutters">
   
   <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
     <div class="card text-white bg-dark mb-3">
@@ -86,4 +71,141 @@
       </div>
     </div>
   </div>
+  
+  
+  <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
+    <div class="card text-white bg-dark mb-3">
+      <div *ngIf="!isLoading || isSyncing">
+        <span *ngIf="isConnected" class="badge badge-success" data-toggle="tooltip" data-placement="top"
+              title="Device is connected">
+            <fa-icon icon="signal" size="m"></fa-icon>
+        </span>
+      <span *ngIf="!isConnected" class="badge badge-danger" data-toggle="tooltip" data-placement="top"
+            title="Device is not connected!">
+            <fa-icon icon="signal" size="m"></fa-icon>
+        </span>
+      </div>
+      <span *ngIf="isLoading && !isSyncing" class="spinner-icon">
+        <fa-icon icon="spinner" [spin]="true" size="m"></fa-icon>
+      </span>
+      <h5 class="card-header">
+        <fa-icon icon="cloud" size="lg" class="mr-1"></fa-icon>
+        CO2 sensor
+      </h5>
+      <div class="card-body">
+        <p class="card-text">CO2: <span *ngIf="isLoading"> <fa-icon icon="spinner" [spin]="true"
+                                                                            size="sm"></fa-icon></span><span
+          *ngIf="!isLoading" class="value">{{carbondioxide}}%</span></p>
+        <button [disabled]="isSyncing" class='btn btn-primary btn-sm btn-info sync-btn mr-2' type="button"
+                (click)="sync()">
+          <fa-icon *ngIf="isSyncing && isLoading" icon="sync-alt" [spin]="true" size="sm"></fa-icon>
+          <span *ngIf="!isSyncing || !isLoading">Sync</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
+    <div class="card text-white bg-dark mb-3">
+      <div *ngIf="!isLoading || isSyncing">
+        <span *ngIf="isConnected" class="badge badge-success" data-toggle="tooltip" data-placement="top"
+              title="Device is connected">
+            <fa-icon icon="signal" size="m"></fa-icon>
+        </span>
+      <span *ngIf="!isConnected" class="badge badge-danger" data-toggle="tooltip" data-placement="top"
+            title="Device is not connected!">
+            <fa-icon icon="signal" size="m"></fa-icon>
+        </span>
+      </div>
+      <span *ngIf="isLoading && !isSyncing" class="spinner-icon">
+        <fa-icon icon="spinner" [spin]="true" size="m"></fa-icon>
+      </span>
+      <h5 class="card-header">
+        <fa-icon icon="flask" size="lg" class="mr-1"></fa-icon>
+        pH sensor
+      </h5>
+      <div class="card-body">
+        <p class="card-text">pH: <span *ngIf="isLoading"> <fa-icon icon="spinner" [spin]="true"
+                                                                            size="sm"></fa-icon></span><span
+          *ngIf="!isLoading" class="value">{{ph}}%</span></p>
+        <button [disabled]="isSyncing" class='btn btn-primary btn-sm btn-info sync-btn mr-2' type="button"
+                (click)="sync()">
+          <fa-icon *ngIf="isSyncing && isLoading" icon="sync-alt" [spin]="true" size="sm"></fa-icon>
+          <span *ngIf="!isSyncing || !isLoading">Sync</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="row no-gutters">
+  
+  <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
+    <div class="card text-white bg-dark mb-3">
+      <span class="badge badge-success" data-toggle="tooltip" data-placement="top"
+            title="Device is connected">
+          <fa-icon icon="signal" size="m"></fa-icon>
+      </span>
+      <h5 class="card-header">
+        <fa-icon icon="lightbulb" size="m" class="mr-1"></fa-icon>
+        Relay 1
+      </h5>
+      <div class="card-body">
+        <p class="card-text">Relay 1</p>
+        <button class='btn btn-primary btn-sm btn-success mr-2' type="button" (click)="onRelay1()">
+          ON
+        </button>
+        <button class='btn btn-primary btn-sm btn-danger mr-2' type="button" (click)="offRelay1()">
+          OFF
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
+    <div class="card text-white bg-dark mb-3">
+      <span class="badge badge-success" data-toggle="tooltip" data-placement="top"
+            title="Device is connected">
+          <fa-icon icon="signal" size="m"></fa-icon>
+      </span>
+      <h5 class="card-header">
+        <fa-icon icon="lightbulb" size="m" class="mr-1"></fa-icon>
+        Relay 2
+      </h5>
+      <div class="card-body">
+        <p class="card-text">Relay 2</p>
+        <button class='btn btn-primary btn-sm btn-success mr-2' type="button" (click)="onRelay2()">
+          ON
+        </button>
+        <button class='btn btn-primary btn-sm btn-danger mr-2' type="button" (click)="offRelay2()">
+          OFF
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
+    <div class="card text-white bg-dark mb-3">
+      <span class="badge badge-success" data-toggle="tooltip" data-placement="top"
+            title="Device is connected">
+          <fa-icon icon="signal" size="m"></fa-icon>
+      </span>
+      <h5 class="card-header">
+        <fa-icon icon="lightbulb" size="m" class="mr-1"></fa-icon>
+        Relay 3
+      </h5>
+      <div class="card-body">
+        <p class="card-text">Relay 3</p>
+        <button class='btn btn-primary btn-sm btn-success mr-2' type="button" (click)="onRelay3()">
+          ON
+        </button>
+        <button class='btn btn-primary btn-sm btn-danger mr-2' type="button" (click)="offRelay3()">
+          OFF
+        </button>
+      </div>
+    </div>
+  </div>
+  
 </div>
