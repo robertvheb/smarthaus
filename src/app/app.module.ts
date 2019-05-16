@@ -10,6 +10,11 @@ import { DevicesComponent } from './devices/devices.component';
 import { DeviceComponent } from './devices/device/device.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { WidgetComponent } from './dashboard/widget/widget.component';
+import { LightComponent } from './dashboard/widget/light/light.component';
+import { DioxideComponent } from './dashboard/widget/dioxide/dioxide.component';
+import { PhComponent } from './dashboard/widget/ph/ph.component';
+import { RelayComponent } from './dashboard/widget/relay/relay.component';
+import { WeatherComponent } from './dashboard/widget/weather/weather.component';
 import { FontsModule } from './fonts.module';
 import { SnackbarUiService } from './shared/snackbar-ui.service';
 import { AuthenticationService } from './auth/authentication.service';
@@ -27,6 +32,11 @@ import { HttpJWTInterceptor } from './auth/http-jwt.interceptor';
     DeviceComponent,
     DashboardComponent,
     WidgetComponent,
+    LightComponent,
+    DioxideComponent,
+    PhComponent,
+    RelayComponent,
+    WeatherComponent,
     NavbarComponent
   ],
   imports: [

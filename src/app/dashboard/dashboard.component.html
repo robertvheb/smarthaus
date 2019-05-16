@@ -4,6 +4,6 @@
     <fa-icon icon="plus"></fa-icon>
     Add Widget
   </button-->
-  <app-widget [registeredDevices]="registeredDevices"></app-widget>
+  <app-widget *ngFor="let device of registeredDevices; trackBy: index;" [type]="device.type" [registeredDevice]="device"></app-widget>
 </div>
 <!--<pre [hidden]="true" style="margin-left: 50%;">{{devices | json}}</pre>-->
