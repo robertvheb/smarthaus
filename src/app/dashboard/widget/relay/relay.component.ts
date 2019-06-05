@@ -9,6 +9,7 @@ import { DeviceService } from '../../../devices/device.service';
 export class RelayComponent implements OnInit, OnDestroy {
   @Input() relayDevice;
   @Input() pin;
+  @Input() name;
   isLoading = true;
   isSyncing = false;
   isConnected;
