@@ -49,13 +49,12 @@
   </div>
   
   <div class="row no-gutters">
-  
     <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
-      <app-widget-ph [phDevice]="registeredDevice"></app-widget-ph>
+      <app-widget-dioxide [dioxideDevice]="registeredDevice"></app-widget-dioxide>
     </div>
     
     <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
-      <app-widget-weather [weatherDevice]="registeredDevice"></app-widget-weather>
+      <app-widget-temperature [temperatureDevice]="registeredDevice"></app-widget-temperature>
     </div>
     
     <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
@@ -65,12 +64,13 @@
   </div>
   
   <div class="row no-gutters">
-    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
-      <app-widget-dioxide [dioxideDevice]="registeredDevice"></app-widget-dioxide>
-    </div>
     
     <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
       <app-widget-relay [relayDevice]="registeredDevice" pin="6" name="Releu 2"></app-widget-relay>
+    </div>
+    
+    <div class="col-lg-3 col-xl-3 col-md-6 col-sm-12 widget mr-3">
+      <app-widget-relay [relayDevice]="registeredDevice" pin="7" name="Releu 3"></app-widget-relay>
     </div>
     
   </div>

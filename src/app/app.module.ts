@@ -15,6 +15,7 @@ import { DioxideComponent } from './dashboard/widget/dioxide/dioxide.component';
 import { PhComponent } from './dashboard/widget/ph/ph.component';
 import { RelayComponent } from './dashboard/widget/relay/relay.component';
 import { WeatherComponent } from './dashboard/widget/weather/weather.component';
+import { TemperatureComponent } from './dashboard/widget/temperature/temperature.component';
 import { FontsModule } from './fonts.module';
 import { SnackbarUiService } from './shared/snackbar-ui.service';
 import { AuthenticationService } from './auth/authentication.service';
@@ -37,6 +38,7 @@ import { HttpJWTInterceptor } from './auth/http-jwt.interceptor';
     PhComponent,
     RelayComponent,
     WeatherComponent,
+    TemperatureComponent,
     NavbarComponent
   ],
   imports: [
